@@ -18,3 +18,6 @@ def t2p(input_edges):
 		deg[edges[row, 1]] -= 1
 	return prufer
 
+def p2t(prufer):
+	pass
+
