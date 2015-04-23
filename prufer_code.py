@@ -2,8 +2,7 @@ import numpy as np
 
 def t2p(input_edges):
 	edges = input_edges.copy()
-	verts = np.arange(edges.max() + 1)
-	deg = np.zeros(len(verts))
+	deg = np.zeros(edges.max() + 1)
 	prufer = []
 	for e in edges:
 		deg[e[0]] += 1
@@ -16,8 +15,17 @@ def t2p(input_edges):
 		prufer.append(edges[row, int(not col)])
 		deg[edges[row, 0]] -= 1
 		deg[edges[row, 1]] -= 1
-	return prufer
+	return np.array(prufer)
 
 def p2t(prufer):
-	pass
+	deg = np.array([np.sum(prufer == i) + 1 for i in range(len(prufer) + 2)])
+	edges = []
+	for code in prufer:
+		v = np.where(deg == 1)[0][0]
+		edges.append([v, code])
+		deg[v] -= 1
+		deg[code] -= 1
+	edges.append(np.where(deg == 1)[0])
+	return np.array(edges)
+
 
