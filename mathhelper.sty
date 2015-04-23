@@ -1,0 +1,65 @@
+% A package containing a number of helpful math commands
+%
+% (c) Roshan Rao
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{mathhelper}
+  [2015/04/19 v0.01 LaTeX package for my own purpose]
+\RequirePackage{amsmath}
+
+% Integer, Reals, etc.
+\newcommand\Z{\mathbb{Z}}
+\newcommand\R{\mathbb{R}}
+\newcommand\N{\mathbb{N}}
+\newcommand\C{\mathbb{C}}
+
+% Lettering that should be unaffected by math mode
+\newcommand\E{\textup{E}}
+\newcommand\rem{\textup{rem}}
+\newcommand\num{\textsc{num}}
+\newcommand\mmod{\textup{mod} \;} % Exists for continuity. Use builtin \pmod.
+\newcommand\Var{\textup{Var}}
+
+% New Math operators
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+
+% Creates a cover sheet for grading purposes
+\newcommand\cover[4]{
+\thispagestyle{empty}
+\begin{center}
+	{\huge #4 Homework}\\
+	{\Large
+		\begin{align*}
+		\text{\textbf{Name}}&: \text{\underline{#1}} \\
+		\text{\textbf{HW}}&: \text{\underline{#2}} \\
+		\text{\textbf{Banner ID}}&: \text{\underline{#3}}
+		\end{align*}
+	}
+	
+	{\Large
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Problem} & \;\textbf{Score}\; & \;\textbf{Grader}\; \\\hline
+			1 & / & ~ \quad\quad\\
+			2 & / & ~ \quad\quad\\
+			3 & / & ~ \quad\quad\\
+			4 & / & ~ \quad\quad\\
+			5 & / & ~ \quad\quad\\
+			6 & / & ~ \quad\quad\\
+			Style & / & ~ \quad\quad\\\hline
+			$\Sigma$ & \textbf{/} & ~ \\
+			\hline
+		\end{tabular}
+	}
+\end{center}
+
+\pagebreak}
+
+\endinput
+%%
+%% EOF 'roshanmath.sty'
