@@ -10,6 +10,8 @@
 \ProvidesPackage{mathhelper}
   [2015/04/19 v0.01 LaTeX package for my own purpose]
 \RequirePackage{amsmath}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows,automata}
 
 % Integer, Reals, etc.
 \newcommand\Z{\mathbb{Z}}
@@ -28,8 +30,35 @@
 \DeclareMathOperator*{\argmin}{\arg\!\min}
 \DeclareMathOperator*{\argmax}{\arg\!\max}
 
+% Space pictures appropriately in enumerate mode
+\newcommand\imspace{\indent \hspace{0pt} \\}
+
+% Make a tikz graph
+\newenvironment{stategraph}
+	{\begin{tikzpicture}[->, >=stealth', shorten >=1pt, auto, node distance=2.5cm, every state/.style={fill=white, draw=black, text=black}]}
+	{\end{tikzpicture}}
+
 % Creates a cover sheet for grading purposes
-\newcommand\cover[4]{
+\newcommand\cover{
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Problem} & \textbf{Score} & \textbf{Grader} \\\hline
+		1 & / & ~ \quad\quad\\
+		2 & / & ~ \quad\quad\\
+		3 & / & ~ \quad\quad\\
+		4 & / & ~ \quad\quad\\
+		5 & / & ~ \quad\quad\\
+		6 & / & ~ \quad\quad\\
+		Style & / & ~ \quad\quad\\\hline
+		$\Sigma$ & \textbf{/} & ~ \\
+		\hline
+	\end{tabular}
+\end{center}
+}
+
+% Creates a large cover sheet for grading purposes
+\newcommand\bigCover[4]{
 \thispagestyle{empty}
 \begin{center}
 	{\huge #4 Homework}\\
